@@ -1,8 +1,21 @@
 const ProductRoute = require('./business/product/route');
 
-const routes = [];
+const routes = [
+  ...ProductRoute.routes,
+  {
+    method: 'GET',
+    path: '/generate',
+    handler: function (request, h) {
 
-// add product routes
-routes.push.apply(routes, ProductRoute.routes);
-
-module.exports = { routes: routes };
+        return {
+            csrfToken: request.server.plugins.crumb.generate(request, h)
+        };
+    }
+  }
+];
+module.exports = {
+  routes: routes,
+  regist: async (server) => {
+    await server.route(routes);
+  },
+};

@@ -1,7 +1,8 @@
 const server = require('./src/server');
+const Logger = require('./src/common/Logger');
 
-server.start().then((server) => {
-    console.log('Server running on %s', server.info.uri);
+server.config().then((server) => {
+    Logger.info('Server running on ' + server.info.uri);
 
     process.on('unhandledRejection', (err) => {
     
