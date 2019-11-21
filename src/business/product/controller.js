@@ -9,7 +9,7 @@ const controller = {
     // return newLocal;
 
     const message = await productService.getproduct();
-    await Cache.getKey('testkey').then(function(result){
+    await Cache.getKey('testkey').then(function(result) {
       Logger.info(result);
     });
     return message;
@@ -25,7 +25,7 @@ const controller = {
   deleteproduct: async (request, h) => {
     const message = await productService.deleteproduct(request.params.id);
     return h.response(message + 'test');
-  },
+  }
 };
 
 module.exports = controller;

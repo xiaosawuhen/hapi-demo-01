@@ -5,11 +5,10 @@ const routes = [
   {
     method: 'GET',
     path: '/generate',
-    handler: function (request, h) {
-
-        return {
-            csrfToken: request.server.plugins.crumb.generate(request, h)
-        };
+    handler: function(request, h) {
+      return {
+        csrfToken: request.server.plugins.crumb.generate(request, h)
+      };
     }
   }
 ];
@@ -17,5 +16,5 @@ module.exports = {
   routes: routes,
   regist: async (server) => {
     await server.route(routes);
-  },
+  }
 };

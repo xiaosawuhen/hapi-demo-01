@@ -7,7 +7,7 @@ const plugins = {
     await server.register(swagger.plugin);
     // await server.register(labbr.plugin);
     await server.register(crumb.plugin);
-  },
+  }
 };
 
 module.exports = plugins;

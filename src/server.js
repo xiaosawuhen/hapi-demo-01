@@ -11,7 +11,7 @@ const Logger = require('./common/Logger');
 module.exports = {
   config: async () => {
     DotEnv.config({
-      path: `${process.cwd()}/.env`,
+      path: `${process.cwd()}/.env`
     });
 
     const server = Hapi.server({
@@ -26,12 +26,12 @@ module.exports = {
               partition: 'uscache',
               host: '127.0.0.1',
               port: 6379,
-              db: 0,
+              db: 0
               // tls: {},
-            },
-          },
-        },
-      ],
+            }
+          }
+        }
+      ]
     });
 
     // await Cache.regist(server);
@@ -56,12 +56,12 @@ module.exports = {
     //   name: 'data_cache', });
 
     await Cache.createCache(server, 'data_cache', 'testcache');
-    await Cache.addKey('testkey', '123123123123')
+    await Cache.addKey('testkey', '123123123123');
 
     Logger.info('Server Start!!!!');
 
     await server.start();
 
     return server;
-  },
+  }
 };

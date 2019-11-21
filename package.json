@@ -12,7 +12,7 @@
     "nodemon:build": "nodemon ./app.ts",
     "nodemon:start": "npm run nodemon:build",
     "format:lint": "./node_modules/.bin/eslint 'src/**/*.js'",
-    "format:prettier": "./node_modules/.bin/prettier --tab-width 2 --print-width 120 --single-quote --trailing-comma all --write 'src/**/*.js'"
+    "format:prettier":"./node_modules/.bin/prettier --config --write 'src/**/*.js'"
   },
   "keywords": [],
   "author": "",

@@ -6,8 +6,8 @@ const Pack = require('../../package');
 const swaggerOptions = {
   info: {
     title: 'Demo API Documentation',
-    version: Pack.version,
-  },
+    version: Pack.version
+  }
 };
 
 const config = [
@@ -15,8 +15,8 @@ const config = [
   Vision,
   {
     plugin: HapiSwagger,
-    options: swaggerOptions,
-  },
+    options: swaggerOptions
+  }
 ];
 
 module.exports = {plugin: config};

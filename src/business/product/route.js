@@ -11,8 +11,8 @@ module.exports.routes = [
       // },
       description: 'Root Path.',
       tags: ['api', 'root'],
-      auth: false,
-    },
+      auth: false
+    }
   },
   {
     method: 'POST',
@@ -24,8 +24,8 @@ module.exports.routes = [
       // },
       description: 'Root Path.',
       tags: ['api', 'root'],
-      auth: false,
-    },
+      auth: false
+    }
   },
   {
     method: 'PUT',
@@ -37,8 +37,8 @@ module.exports.routes = [
       // },
       description: 'Root Path.',
       tags: ['api', 'root'],
-      auth: false,
-    },
+      auth: false
+    }
   },
   {
     method: 'DELETE',
@@ -50,7 +50,7 @@ module.exports.routes = [
       // },
       description: 'Root Path.',
       tags: ['api', 'root'],
-      auth: false,
-    },
-  },
+      auth: false
+    }
+  }
 ];

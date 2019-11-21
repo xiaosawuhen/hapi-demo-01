@@ -19,5 +19,5 @@ module.exports = {
   httpDelete: async (url, body) => {
     const {res, payload} = await Httpclient.delete(url);
     return payload;
-  },
+  }
 };
