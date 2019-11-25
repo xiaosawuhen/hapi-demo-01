@@ -7,6 +7,7 @@ const Plugin = require('./plugin');
 const CatboxRedis = require('@hapi/catbox-redis');
 const Cache = require('./cache');
 const Logger = require('./common/Logger');
+const Scheme = require('./auth/JwtScheme');
 
 module.exports = {
   config: async () => {
@@ -38,9 +39,16 @@ module.exports = {
     // await Cache.registServerMethod(server, HttpClient);
     await Plugin.regist(server);
 
-    await server.route(Router.routes);
+    server.auth.scheme('JwtScheme', Scheme);
+    server.auth.strategy('jwt', 'JwtScheme');
 
     await server.initialize();
+    const cacheClient = await server.cache({cache: 'data_cache', segment: 'product', expiresIn: 60 * 60 * 1000});
+    cacheClient.set('testkey','dgaerfvzfvaw');
+    await Cache.createCache(server, 'data_cache', 'testcache');
+    await Cache.addKey('testkey', '123123123123');
+
+    await server.route(Router.routes);
 
     // await server.cache.provision({
     //   provider: {
@@ -54,9 +62,6 @@ module.exports = {
     //     }
     //   },
     //   name: 'data_cache', });
-
-    await Cache.createCache(server, 'data_cache', 'testcache');
-    await Cache.addKey('testkey', '123123123123');
 
     Logger.info('Server Start!!!!');
 

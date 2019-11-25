@@ -1,7 +1,9 @@
 const ProductRoute = require('./business/product/route');
+const AuthRoute = require('./business/auth/route');
 
 const routes = [
   ...ProductRoute.routes,
+  ...AuthRoute.routes,
   {
     method: 'GET',
     path: '/generate',

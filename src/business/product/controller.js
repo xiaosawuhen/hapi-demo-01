@@ -1,6 +1,7 @@
 const productService = require('./service');
 const Logger = require('../../common/Logger');
 const Cache = require('../../cache');
+const Boom = require('@hapi/boom');
 
 const controller = {
   getproduct: async (request, h) => {
@@ -9,12 +10,21 @@ const controller = {
     // return newLocal;
 
     const message = await productService.getproduct();
-    await Cache.getKey('testkey').then(function(result) {
-      Logger.info(result);
+    let result = false;
+    await Cache.getKey('testkey').then(function(_result) {
+      Logger.info(_result);
     });
+
+    if(result) {
+      throw Boom.badRequest();
+    }
+
+    console.log(result);
+    // console.log(request.raw.req.headers);
+    // Logger.info(request.auth.credentials.user);
     return message;
   },
-  addproduct: async () => {
+  addproduct: async (request,h) => {
     const message = await productService.addproduct();
     return message;
   },

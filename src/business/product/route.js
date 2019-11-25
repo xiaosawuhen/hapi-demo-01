@@ -11,6 +11,7 @@ module.exports.routes = [
       // },
       description: 'Root Path.',
       tags: ['api', 'root'],
+      // auth: 'jwt'
       auth: false
     }
   },

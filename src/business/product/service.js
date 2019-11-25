@@ -1,12 +1,14 @@
 const Httpclient = require('@hapi/wreck');
 const superagent = require('superagent');
+const Wreck = require('../../common/wreck');
 
 const service = {
   getproduct: async () => {
-    const Wreck = require('../../common/wreck');
     const uri =
-      'https://192.168.240.1:9002/authorizationserver/oauth/token?client_id=kyma&client_secret=123456&grant_type=client_credentials';
-    const body = await Wreck.post(uri, {name: 'wnn'});
+      // 'https://192.168.240.1:9002/authorizationserver/oauth/token?client_id=kyma&client_secret=123456&grant_type=client_credentials';
+      'http://59.110.162.43/wgy/';
+    Wreck.addHeaders({key:'123123'});
+    const body = await Wreck.get(uri, {name: 'wnn'});
     return body;
   },
   addproduct: async () => {
