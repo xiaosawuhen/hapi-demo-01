@@ -28,7 +28,7 @@
     "@hapi/lab": "^21.0.0",
     "@hapi/vision": "^5.5.4",
     "@hapi/wreck": "^16.0.1",
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "code": "^5.2.4",
     "dotenv": "^8.2.0",
     "hapi-swagger": "^11.0.0",
